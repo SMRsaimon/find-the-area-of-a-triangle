@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        div {
+            text-align: center;
+        }
+        
+        button {
+            padding: 5px 60px;
+            cursor: pointer;
+            color: hotpink;
+            background: indigo;
+        }
+        
+        label {
+            font-size: 1rem;
+            color: gray;
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 30px;
+            color: gray;
+        }
+        
+        h3>input {
+            padding: 10px 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>JavaScript function to find the area of a triangle</h1>
+        <label for="inputOne">Input Your 1st Value</label>
+        <input type="text" name="" id="inputOne" /><br /><br />
+        <label for="inputTwo">Input Your 2nd Value</label>
+        <input type="text" name="" id="inputTwo" /><br /><br />
+        <label for="inputTwo">Input Your 3rd Value</label>
+        <input type="text" name="" id="inputThree" /><br /><br />
+
+        <span style="color: gray; font-size: 12px">Press Enter to calculate Result </span>
+        <button onclick="resultOfTriangle()" type="button">Enter</button><br /><br />
+        <span style="color: gray; font-size: 12px">Clear to calculate Result </span>
+        <button onclick="resultClear()" type="button" style="background: red; color: black">Clear</button>
+
+        <h3>The result is : <input id="result" type="text" /></h3>
+    </div>
+
+    <script>
+        const $ = (ID) => document.getElementById(ID);
+
+        const resultOfTriangle = () => {
+            const inputOne = $('inputOne').value;
+            const a = parseFloat(inputOne);
+            const inputTwo = $('inputTwo').value;
+            const b = parseFloat(inputTwo);
+
+            const inputThree = $('inputThree').value;
+            const c = parseFloat(inputThree);
+
+            const p = (a + b + c) / 2;
+            const area = Math.sqrt(p * ((p - a) * (p - b) * (p - c)));
+
+            const result = ($('result').value = area);
+        };
+
+        const resultClear = () => {
+            const inputOne = ($('inputOne').value = '');
+            const inputTwo = ($('inputTwo').value = '');
+            const inputThree = ($('inputThree').value = '');
+            const result = ($('result').value = '');
+        };
+    </script>
+</body>
+
+</html>
